@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Contacto</h1>
+
+{% if enviado %}
+<p><strong>Gracias {{ nombre }}.</strong> Recibimos tu mensaje.</p>
+{% endif %}
+
+<form action="{{ url_for('main.contact_post') }}" method="post">
+  <p><label>Nombre<br><input name="nombre" required></label></p>
+  <p><label>Email<br><input type="email" name="email" required></label></p>
+  <p><label>Mensaje<br><textarea name="mensaje" rows="4" required></textarea></label></p>
+  <button type="submit">Enviar</button>
+</form>
+{% endblock %}
+

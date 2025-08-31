@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title or "Mi Sitio Flask" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{{ url_for('main.home') }}">MiSitio</a>
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="toggleNav()">☰</button>
+      <nav id="nav" class="nav">
+        <a href="{{ url_for('main.home') }}">Inicio</a>
+        <a href="{{ url_for('main.about') }}">Acerca de</a>
+        <a href="{{ url_for('main.contact_get') }}">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; {{ 2025 }} MiSitio. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
